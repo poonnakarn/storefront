@@ -1,13 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.contenttypes.models import ContentType
+from store.models import Product, Collection
+from tags.models import TaggedItem
 
-
-def calculate():
-    x = 1
-    y = 2
-    return x
 
 
 def say_hello(request):
-    x = calculate()
-    return render(request, 'hello.html', {'name': 'Mosh'})
+    collection = Collection(pk=12)
+    collection.delete()
+
+    return render(request, 'hello.html', {'name': 'Poon'})
